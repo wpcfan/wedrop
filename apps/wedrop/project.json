@@ -1,0 +1,80 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/wedrop/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/wedrop",
+        "index": "apps/wedrop/src/index.html",
+        "baseHref": "/",
+        "main": "apps/wedrop/src/main.tsx",
+        "polyfills": "apps/wedrop/src/polyfills.ts",
+        "tsConfig": "apps/wedrop/tsconfig.app.json",
+        "assets": ["apps/wedrop/src/favicon.ico", "apps/wedrop/src/assets"],
+        "styles": ["apps/wedrop/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/wedrop/src/environments/environment.ts",
+              "with": "apps/wedrop/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "wedrop:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "wedrop:build:development"
+        },
+        "production": {
+          "buildTarget": "wedrop:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/wedrop/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/wedrop"],
+      "options": {
+        "jestConfig": "apps/wedrop/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
