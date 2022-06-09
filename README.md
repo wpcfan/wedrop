@@ -1,6 +1,8 @@
 
 
-# Twigcodes
+# WeDrop
+
+This project enables multiple clients to share files and clipboards, provide similar experience of AirDrop.
 
 This project was generated using [Nx](https://nx.dev).
 
