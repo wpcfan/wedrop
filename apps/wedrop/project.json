@@ -48,7 +48,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "wedrop:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/wedrop/proxy.conf.json"
       },
       "configurations": {
         "development": {

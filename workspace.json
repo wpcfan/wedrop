@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "api": "apps/api",
     "wedrop": "apps/wedrop",
     "wedrop-e2e": "apps/wedrop-e2e"
   }
