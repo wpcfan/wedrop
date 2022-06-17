@@ -139,7 +139,8 @@ export const App = () => {
         paddingBottom: "1rem"
       }}>
         <Link to="/invoices">Invoices</Link> | {" "}
-        <Link to="/expenses">Expenses</Link>
+        <Link to="/expenses">Expenses</Link> | {" "}
+        <Link to="/chat">Chat</Link>
       </nav>
       <Outlet></Outlet>
     </div>

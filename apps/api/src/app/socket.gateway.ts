@@ -6,7 +6,12 @@ import {
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
 
-@WebSocketGateway({ namespace: 'wedrop' })
+@WebSocketGateway({
+  namespace: 'wedrop',
+  cors: {
+    origin: '*',
+  },
+})
 export class SocketGateway {
   @WebSocketServer() server: Server;
 
