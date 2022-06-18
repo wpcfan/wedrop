@@ -55,7 +55,7 @@ export const useStartPeerSession = (
     return () => {
       if (userMediaStream) {
         peerVideoConnection.clearConnections();
-        userMediaStream?.getTracks()?.forEach((track) => track.stop());
+        userMediaStream.getTracks().forEach((track) => track.stop());
       }
     };
   }, [peerVideoConnection, room, userMediaStream]);
